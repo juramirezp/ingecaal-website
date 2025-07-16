@@ -1,0 +1,280 @@
+---
+// Componente avanzado con múltiples ejemplos de blur en gradiente
+---
+
+<section class="blur-examples">
+  <h2 class="section-title">Ejemplos de Blur en Gradiente</h2>
+  <p class="section-description">
+    Diferentes técnicas para crear efectos de blur con gradiente
+  </p>
+
+  <div class="examples-grid">
+    <!-- Ejemplo 1: Blur horizontal con máscara de gradiente -->
+    <div class="example-card">
+      <div class="example-container example-1">
+        <div class="content">
+          <h3>Horizontal</h3>
+          <p>Blur con gradiente de izquierda a derecha</p>
+        </div>
+        <div class="blur-effect blur-horizontal"></div>
+      </div>
+      <div class="example-description">
+        <h4>Blur Horizontal</h4>
+        <p>Usa mask-image con un gradiente lineal horizontal</p>
+      </div>
+    </div>
+
+    <!-- Ejemplo 2: Blur radial desde el centro -->
+    <div class="example-card">
+      <div class="example-container example-2">
+        <div class="content">
+          <h3>Radial</h3>
+          <p>Blur con gradiente desde el centro</p>
+        </div>
+        <div class="blur-effect blur-radial"></div>
+      </div>
+      <div class="example-description">
+        <h4>Blur Radial</h4>
+        <p>Usa mask-image con un gradiente radial</p>
+      </div>
+    </div>
+
+    <!-- Ejemplo 3: Blur con múltiples capas -->
+    <div class="example-card">
+      <div class="example-container example-3">
+        <div class="content">
+          <h3>Capas</h3>
+          <p>Blur con múltiples intensidades</p>
+        </div>
+        <div class="blur-effect blur-layers"></div>
+      </div>
+      <div class="example-description">
+        <h4>Múltiples Capas</h4>
+        <p>Combina divs con diferentes niveles de blur</p>
+      </div>
+    </div>
+
+    <!-- Ejemplo 4: Blur con animación -->
+    <div class="example-card">
+      <div class="example-container example-4">
+        <div class="content">
+          <h3>Animado</h3>
+          <p>Blur con efecto animado</p>
+        </div>
+        <div class="blur-effect blur-animated"></div>
+      </div>
+      <div class="example-description">
+        <h4>Blur Animado</h4>
+        <p>Animación CSS del efecto blur</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blur-examples {
+    padding: 4rem 2rem;
+    background-color: #f5f5f5;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .section-description {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-dark);
+  }
+
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .example-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+
+  .example-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .example-1,
+  .example-2,
+  .example-3,
+  .example-4 {
+    background-image: url("/src/assets/hero.png");
+  }
+
+  .content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .content p {
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .example-description {
+    padding: 1.5rem;
+  }
+
+  .example-description h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+  }
+
+  .example-description p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  /* Efectos de blur */
+  .blur-effect {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Ejemplo 1: Blur horizontal */
+  .blur-horizontal {
+    transform: rotate(60deg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  /* Ejemplo 2: Blur radial */
+  .blur-radial {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    mask-image: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+
+  /* Ejemplo 3: Blur con múltiples capas */
+  .blur-layers::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .blur-layers::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Ejemplo 4: Blur animado */
+  .blur-animated {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    mask-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-size: 300% 100%;
+    -webkit-mask-size: 300% 100%;
+    animation: blur-wave 3s infinite linear;
+  }
+
+  @keyframes blur-wave {
+    0% {
+      mask-position: 100% 0%;
+      -webkit-mask-position: 100% 0%;
+    }
+    100% {
+      mask-position: 0% 0%;
+      -webkit-mask-position: 0% 0%;
+    }
+  }
+
+  /* Fallback para navegadores que no soportan backdrop-filter */
+  @supports not (backdrop-filter: blur(8px)) {
+    .blur-horizontal,
+    .blur-radial,
+    .blur-layers::before,
+    .blur-layers::after,
+    .blur-animated {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .examples-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

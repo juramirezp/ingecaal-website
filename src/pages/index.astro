@@ -1,0 +1,36 @@
+---
+import Hero from "../components/Hero.astro";
+import Features from "../components/Features.astro";
+import Gallery from "../components/Gallery.astro";
+import Normativas from "../components/Normativas.astro";
+import Beneficios from "../components/Beneficios.astro";
+import Clientes from "../components/Clientes.astro";
+import Faq from "../components/Faq.astro";
+import Contacto from "../components/Contacto.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import BlurGradientExample from "../components/BlurGradientExample.astro";
+import BlurGradientAdvanced from "../components/BlurGradientAdvanced.astro";
+import BlurGradientHero from "../components/BlurGradientHero.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Navbar />
+  <Hero />
+  <main class="-mt-24 bg-white container mx-auto relative z-10">
+    <Features />
+  </main>
+  <Gallery />
+  <Normativas />
+  <Beneficios />
+  <Clientes />
+  <Faq />
+  <Contacto />
+
+  <BlurGradientExample />
+  <BlurGradientAdvanced />
+  <BlurGradientHero />
+
+  <Footer />
+</Layout>

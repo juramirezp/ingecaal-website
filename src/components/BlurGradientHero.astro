@@ -1,0 +1,176 @@
+---
+// Componente de hero con efecto de blur en gradiente aplicado a la imagen de fondo
+---
+
+<section class="blur-gradient-hero">
+  <div class="hero-content">
+    <h2>Hero con Blur en Gradiente</h2>
+    <p>Un ejemplo de cómo aplicar el efecto de blur en gradiente a una sección de hero</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-primary">Botón Principal</a>
+      <a href="#" class="btn btn-secondary">Botón Secundario</a>
+    </div>
+  </div>
+  
+  <!-- Capas de blur en gradiente -->
+  <div class="blur-layers">
+    <!-- Capa 1: Blur fuerte en la parte izquierda -->
+    <div class="blur-layer blur-left"></div>
+    
+    <!-- Capa 2: Blur medio en la parte inferior -->
+    <div class="blur-layer blur-bottom"></div>
+    
+    <!-- Capa 3: Blur suave radial en la esquina superior derecha -->
+    <div class="blur-layer blur-corner"></div>
+  </div>
+</section>
+
+<style>
+  .blur-gradient-hero {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    background-image: url('/src/assets/hero.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 4rem 2rem;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    max-width: 800px;
+  }
+  
+  .hero-content h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  /* Capas de blur */
+  .blur-layers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .blur-layer {
+    position: absolute;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  /* Blur en la parte izquierda con gradiente horizontal */
+  .blur-left {
+    left: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    mask-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  }
+  
+  /* Blur en la parte inferior con gradiente vertical */
+  .blur-bottom {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.15);
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  }
+  
+  /* Blur en la esquina superior derecha con gradiente radial */
+  .blur-corner {
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(38, 70, 83, 0.2); /* Color dark del tema */
+    mask-image: radial-gradient(circle at top right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%);
+    -webkit-mask-image: radial-gradient(circle at top right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%);
+  }
+  
+  /* Fallback para navegadores que no soportan backdrop-filter */
+  @supports not (backdrop-filter: blur(8px)) {
+    .blur-left {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .blur-bottom {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    .blur-corner {
+      background-color: rgba(38, 70, 83, 0.4);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h2 {
+      font-size: 2.25rem;
+    }
+    
+    .hero-content p {
+      font-size: 1.125rem;
+    }
+    
+    .blur-left {
+      width: 60%;
+    }
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+// Navbar component with sticky behavior and responsive design
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent"
+>
+  <div class="container mx-auto px-4">
+    <nav class="flex items-center justify-between py-4">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center">
+        <span class="text-2xl font-bold text-white">INGECAAL</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a
+          href="#inicio"
+          class="text-white hover:text-primary font-medium transition-colors"
+          >Inicio</a
+        >
+        <a
+          href="#nosotros"
+          class="text-white hover:text-primary font-medium transition-colors"
+          >Nosotros</a
+        >
+        <a
+          href="#servicios"
+          class="text-white hover:text-primary font-medium transition-colors"
+          >Servicios</a
+        >
+        <a
+          href="#normativas"
+          class="text-white hover:text-primary font-medium transition-colors"
+          >Normativas</a
+        >
+        <a
+          href="#beneficios"
+          class="text-white hover:text-primary font-medium transition-colors"
+          >Beneficios</a
+        >
+        <a
+          href="#clientes"
+          class="text-white hover:text-primary font-medium transition-colors"
+          >Clientes</a
+        >
+        <a
+          href="#faq"
+          class="text-white hover:text-primary font-medium transition-colors"
+          >FAQ</a
+        >
+        <a
+          href="#contacto"
+          class="bg-primary hover:bg-accent text-white font-medium py-2 px-4 rounded-md transition duration-300"
+        >
+          Contacto
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden text-white focus:outline-none"
+        aria-label="Menú"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div id="mobile-menu" class="md:hidden bg-dark bg-opacity-95 hidden">
+    <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+      <a
+        href="#inicio"
+        class="text-white hover:text-primary font-medium transition-colors py-2"
+        >Inicio</a
+      >
+      <a
+        href="#nosotros"
+        class="text-white hover:text-primary font-medium transition-colors py-2"
+        >Nosotros</a
+      >
+      <a
+        href="#servicios"
+        class="text-white hover:text-primary font-medium transition-colors py-2"
+        >Servicios</a
+      >
+      <a
+        href="#normativas"
+        class="text-white hover:text-primary font-medium transition-colors py-2"
+        >Normativas</a
+      >
+      <a
+        href="#beneficios"
+        class="text-white hover:text-primary font-medium transition-colors py-2"
+        >Beneficios</a
+      >
+      <a
+        href="#clientes"
+        class="text-white hover:text-primary font-medium transition-colors py-2"
+        >Clientes</a
+      >
+      <a
+        href="#faq"
+        class="text-white hover:text-primary font-medium transition-colors py-2"
+        >FAQ</a
+      >
+      <a
+        href="#contacto"
+        class="bg-primary hover:bg-accent text-white font-medium py-2 px-4 rounded-md transition duration-300 inline-block"
+      >
+        Contacto
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Get elements
+  const navbar = document.getElementById("navbar");
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  // Toggle mobile menu
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+
+  // Close mobile menu when clicking on a link
+  const mobileLinks = mobileMenu?.querySelectorAll("a") ?? [];
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+    });
+  });
+
+  // Change navbar background on scroll
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.remove("bg-transparent");
+      navbar?.classList.add("bg-dark", "bg-opacity-95", "shadow-lg");
+    } else {
+      navbar?.classList.add("bg-transparent");
+      navbar?.classList.remove("bg-dark", "bg-opacity-95", "shadow-lg");
+    }
+  });
+
+  // Initial check for scroll position
+  if (window.scrollY > 50) {
+    navbar?.classList.remove("bg-transparent");
+    navbar?.classList.add("bg-dark", "bg-opacity-95", "shadow-lg");
+  }
+</script>
