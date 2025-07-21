@@ -1,0 +1,27 @@
+---
+// Componente reutilizable para mostrar valores/experiencias
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  icono: string;
+}
+
+const { titulo, descripcion, icono } = Astro.props;
+---
+
+<div
+  class="group p-4 bg-white rounded-lg border border-gray-200 hover:border-primary grid grid-rows-[auto_auto] gap-x-4 gap-y-3 transition-all duration-200 ease-in-out"
+>
+  <h3 class="text-lg font-medium font-heading text-dark row-start-1 flex">
+    <Icon
+      name={icono}
+      class="text-gray-600 text-2xl font-bold mr-3 group-hover:text-primary transition-all duration-200 ease-in-out"
+    />
+    {titulo}
+  </h3>
+  <p class="text-gray-600 row-start-2 text-sm">
+    {descripcion}
+  </p>
+</div>

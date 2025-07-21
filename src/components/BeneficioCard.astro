@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  imagen: ImageMetadata;
+  alt?: string;
+}
+
+const {
+  titulo,
+  descripcion,
+  imagen,
+  alt = "Imagen de beneficio",
+} = Astro.props;
+---
+
+<article class="flex flex-col md:items-start">
+  <Image
+    src={imagen}
+    alt={alt}
+    class="rounded-lg aspect-video md:aspect-square w-full mb-4 object-cover"
+  />
+  <h3 class="text-lg font-bold mb-2 text-left">{titulo}</h3>
+  <p class="text-md text-gray-700">
+    {descripcion}
+  </p>
+</article>

@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  imagen: ImageMetadata;
+  nombre: string;
+}
+
+const { imagen, nombre } = Astro.props;
+---
+
+<div
+  class="bg-gray-100 rounded-lg p-6 flex items-center justify-center h-32 hover:shadow-md transition-shadow duration-300"
+>
+  <Image
+    src={imagen}
+    alt={`Logo de ${nombre}`}
+    class="max-h-full max-w-full object-contain"
+  />
+</div>

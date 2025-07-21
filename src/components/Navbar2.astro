@@ -1,67 +1,54 @@
 ---
 // Navbar component with sticky behavior and responsive design
+import { Image } from "astro:assets";
+import logoImage from "../assets/logo.png";
 ---
 
-<header
-  id="navbar"
-  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent"
->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white normalNav">
   <div class="container mx-auto px-4">
-    <nav class="flex items-center justify-between py-4">
+    <nav
+      class="flex items-center justify-between transition-all duration-100 ease-in"
+    >
       <!-- Logo -->
       <a href="#inicio" class="flex items-center">
-        <span class="text-2xl font-bold text-white">INGECAAL</span>
+        <!-- <span class="text-2xl font-bold text-gray-950">INGECAAL</span> -->
+        <Image src={logoImage} alt="" class="max-h-[45px] object-contain" />
       </a>
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
         <a
           href="#inicio"
-          class="text-white hover:text-primary font-[200] transition-colors"
-          >Inicio</a
+          class="text-gray-950 hover:text-primary font-[200] transition-colors text-sm"
+          >Conocenos</a
         >
         <a
           href="#nosotros"
-          class="text-white hover:text-primary font-[200] transition-colors"
+          class="text-gray-950 hover:text-primary font-[200] transition-colors text-sm"
           >Nosotros</a
         >
         <a
           href="#servicios"
-          class="text-white hover:text-primary font-[200] transition-colors"
+          class="text-gray-950 hover:text-primary font-[200] transition-colors text-sm"
           >Servicios</a
         >
         <a
-          href="#normativas"
-          class="text-white hover:text-primary font-[200] transition-colors"
-          >Normativas</a
-        >
-        <a
-          href="#beneficios"
-          class="text-white hover:text-primary font-[200] transition-colors"
-          >Beneficios</a
-        >
-        <a
-          href="#clientes"
-          class="text-white hover:text-primary font-[200] transition-colors"
-          >Clientes</a
-        >
-        <a
           href="#faq"
-          class="text-white hover:text-primary font-[200] transition-colors"
-          >FAQ</a
+          class="text-gray-950 hover:text-primary font-[200] transition-colors text-sm"
+          >Preguntas</a
         >
         <a
           href="#contacto"
-          class="bg-primary hover:bg-accent text-white font-[200] py-2 px-4 rounded-md transition duration-300"
+          class="bg-primary hover:bg-accent text-white text-sm font-bold py-2 px-4 rounded-md transition duration-300"
         >
-          Contacto
+          Contactanos
         </a>
       </div>
 
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden text-white focus:outline-none"
+        class="md:hidden text-gray-950 focus:outline-none"
         aria-label="Menú"
       >
         <svg
@@ -86,42 +73,27 @@
     <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
       <a
         href="#inicio"
-        class="text-white hover:text-primary font-[200] transition-colors py-2"
-        >Inicio</a
+        class="text-gray-950 hover:text-primary font-[200] transition-colors py-2"
+        >Conocenos</a
       >
       <a
         href="#nosotros"
-        class="text-white hover:text-primary font-medium transition-colors py-2"
+        class="text-gray-950 hover:text-primary font-medium transition-colors py-2"
         >Nosotros</a
       >
       <a
         href="#servicios"
-        class="text-white hover:text-primary font-medium transition-colors py-2"
+        class="text-gray-950 hover:text-primary font-medium transition-colors py-2"
         >Servicios</a
       >
       <a
-        href="#normativas"
-        class="text-white hover:text-primary font-medium transition-colors py-2"
-        >Normativas</a
-      >
-      <a
-        href="#beneficios"
-        class="text-white hover:text-primary font-medium transition-colors py-2"
-        >Beneficios</a
-      >
-      <a
-        href="#clientes"
-        class="text-white hover:text-primary font-medium transition-colors py-2"
-        >Clientes</a
-      >
-      <a
         href="#faq"
-        class="text-white hover:text-primary font-medium transition-colors py-2"
-        >FAQ</a
+        class="text-gray-950 hover:text-primary font-medium transition-colors py-2"
+        >Preguntas</a
       >
       <a
         href="#contacto"
-        class="bg-primary hover:bg-accent text-white font-medium py-2 px-4 rounded-md transition duration-300 inline-block"
+        class="bg-primary hover:bg-accent text-gray-950 font-medium py-2 px-4 rounded-md transition duration-300 inline-block"
       >
         Contacto
       </a>
@@ -169,15 +141,16 @@
 <style>
   @import "../styles/global.css";
 
-  .normalNav {
-    background: #2b2b2b;
-    background: linear-gradient(
-      180deg,
-      rgba(43, 43, 43, 1) 0%,
-      rgba(0, 0, 0, 0) 94%
-    );
+  /* .normalNav {
+    @apply;
+  } */
+  .normalNav nav {
+    @apply py-4;
+  }
+  .scrolledNav nav {
+    @apply py-1;
   }
   .scrolledNav {
-    @apply bg-gray-950  shadow-lg;
+    @apply shadow-md;
   }
 </style>

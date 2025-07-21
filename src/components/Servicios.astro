@@ -1,0 +1,73 @@
+---
+// Servicios component for landing page
+import tableroImage from "../assets/tableros-v.png";
+import lucesImage from "../assets/luces.png";
+import tablerosListosImage from "../assets/tableros-listos.png";
+import bancoImage from "../assets/banco-3.png";
+import ServicioCard from "./ServicioCard.astro";
+
+// Datos de los servicios
+const servicios = [
+  {
+    titulo: "Diseño y fabricación de tableros eléctricos",
+    descripcion:
+      "Tableros eléctricos con alambrado finalizado, diseñados según las especificaciones de cada cliente y proyecto.",
+    imagen: tableroImage,
+  },
+  {
+    titulo: "Alambrado de luces indicadoras",
+    descripcion:
+      "Instalación de luces indicadoras de presencia de fase, garantizando la seguridad y monitoreo efectivo.",
+    imagen: lucesImage,
+  },
+  {
+    titulo: "Tableros listos para funcionar en obra",
+    descripcion:
+      "Entregamos tableros completamente operativos, reduciendo tiempos de instalación y puesta en marcha.",
+    imagen: tablerosListosImage,
+  },
+  {
+    titulo: "Bancos de condensadores",
+    descripcion:
+      "Diseño e instalación de bancos de condensadores para mejorar el factor de potencia y la eficiencia energética.",
+    imagen: bancoImage,
+  },
+];
+---
+
+<section id="servicios" class="py-18 md:py-28 bg-gray-50">
+  <div class="container mx-auto px-4 flex flex-col items-center">
+    <div class="text-center mb-12">
+      <h2
+        class="text-2xl md:text-3xl font-bold font-heading mb-6 underline-title underline-center text-gray-600"
+      >
+        Nuestras Soluciones
+      </h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+        Ofrecemos soluciones completas, desde diseño hasta puesta en obra.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        servicios.map((servicio) => (
+          <ServicioCard
+            titulo={servicio.titulo}
+            descripcion={servicio.descripcion}
+            imagen={servicio.imagen}
+          />
+        ))
+      }
+    </div>
+
+    <div
+      class="mt-12 md:text-center pl-3 py-1 border-l-2 border-primary inline-block mx-auto"
+    >
+      <p class="text-lg text-gray-700">
+        Cada servicio está respaldado por nuestro enfoque en <span
+          class="font-bold">seguridad</span
+        >, <span class="font-bold">certificación</span> y atención al cliente.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,15 +1,128 @@
 ---
 // FAQ component for landing page
+import FaqItem from "./FaqItem.astro";
+
+// Datos de preguntas frecuentes
+const preguntas = [
+  {
+    numero: 1,
+    categoria: "Recomendaciones de Uso",
+    pregunta: "¿Dónde se recomienda ubicar un tablero eléctrico?",
+    respuesta:
+      "En lugares accesibles, secos y con buena ventilación. Evita zonas con humedad o exposición directa al sol.",
+  },
+  {
+    numero: 2,
+    categoria: "Normativas",
+    pregunta: "¿Cómo verifico que mi tablero cumple con normas?",
+    respuesta:
+      "Busca etiquetas visibles y solicita certificados IEC 61439 y resultados de pruebas IP.",
+  },
+  {
+    numero: 3,
+    categoria: "Instalación y Garantía",
+    pregunta: "¿Quién puede instalar un tablero eléctrico?",
+    respuesta:
+      "Debe ser instalado por personal certificado o instaladores autorizados por la SEC para garantizar seguridad y validez legal.",
+  },
+  {
+    numero: 4,
+    categoria: "Recomendaciones de Uso",
+    pregunta: "¿Cuándo debo reemplazar un tablero eléctrico?",
+    respuesta:
+      "Tras 15-20 años, daños visibles, sobrecalentamiento o si no cumple normativas actuales.",
+  },
+  {
+    numero: 5,
+    categoria: "Instalación y Garantía",
+    pregunta: "¿La garantía del tablero se pierde si lo modifico?",
+    respuesta:
+      "Sí. Cualquier modificación no autorizada puede anular la garantía y comprometer su seguridad.",
+  },
+];
+
+// Preguntas adicionales (mostradas al hacer clic en "Ver más")
+const preguntasAdicionales = [
+  {
+    numero: 6,
+    categoria: "Mantenimiento",
+    pregunta: "¿Qué mantenimiento requiere un tablero eléctrico?",
+    respuesta:
+      "Inspección visual mensual, limpieza semestral y revisión térmica anual por profesionales.",
+  },
+  {
+    numero: 7,
+    categoria: "Seguridad",
+    pregunta: "¿Por qué necesito materiales resistentes a la corrosión?",
+    respuesta:
+      "Extienden la vida útil del tablero y reducen riesgos eléctricos.",
+  },
+  {
+    numero: 8,
+    categoria: "Especificaciones Técnicas",
+    pregunta: "¿Qué nivel de protección IP debe tener un tablero?",
+    respuesta:
+      "IP41 para interiores, IP44 en exteriores techados y hasta IP54 para ambientes expuestos.",
+  },
+  {
+    numero: 9,
+    categoria: "Especificaciones Técnicas",
+    pregunta:
+      "¿Un tablero eléctrico es compatible con cualquier tipo de instalación?",
+    respuesta:
+      "No siempre. Debe adaptarse al voltaje, la carga eléctrica y al entorno donde se instalará.",
+  },
+  {
+    numero: 10,
+    categoria: "Especificaciones Técnicas",
+    pregunta: "¿Puedo personalizar el diseño de un tablero eléctrico?",
+    respuesta:
+      "Sí. Se pueden adaptar gabinetes, accesorios y distribución interna según tus necesidades técnicas.",
+  },
+  {
+    numero: 11,
+    categoria: "Especificaciones Técnicas",
+    pregunta: "¿Es importante que los componentes internos sean visibles?",
+    respuesta:
+      "Sí. Una buena visibilidad facilita las inspecciones, el mantenimiento y la identificación rápida de fallas.",
+  },
+  {
+    numero: 12,
+    categoria: "Normativas",
+    pregunta: "¿Qué es la norma IEC 61439 y por qué es clave?",
+    respuesta:
+      "Regula la fabricación segura de tableros de baja tensión, incluyendo pruebas mecánicas, dieléctricas y de aislamiento.",
+  },
+  {
+    numero: 13,
+    categoria: "Normativas",
+    pregunta: "¿Qué normas chilenas regulan los tableros eléctricos?",
+    respuesta:
+      "RIC Nº 02 (SEC) y Decreto Nº 8/2019 exigen cumplimiento de normas IEC y estándares de seguridad.",
+  },
+  {
+    numero: 14,
+    categoria: "Normativas",
+    pregunta: "¿Debo distinguir entre normas IEC, NEMA y UL?",
+    respuesta:
+      "Sí. IEC son estándares internacionales, NEMA para gabinetes (EE.UU.) y UL certifica productos.",
+  },
+  {
+    numero: 15,
+    categoria: "Normativas",
+    pregunta: "¿Qué consecuencias tiene no cumplir las normativas?",
+    respuesta:
+      "Riesgo de accidentes, multas, pérdida de garantía y posible invalidez de seguros.",
+  },
+];
 ---
 
-<section id="faq" class="py-16 bg-gray-50">
+<section id="faq" class="py-18 md:py-28 bg-gray-50">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
-      <span
-        class="text-2xl md:text-3xl font-bold inline-block bg-primary text-white px-4 py-1 rounded-md mb-4"
-        >❓ Preguntas frecuentes</span
+      <h2
+        class="text-3xl md:text-4xl font-bold font-heading mb-6 underline-title underline-center text-gray-600"
       >
-      <h2 class="text-3xl md:text-4xl font-bold font-heading mb-6">
         Resolvemos tus dudas
       </h2>
       <p class="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -20,306 +133,30 @@
 
     <div class="max-w-4xl mx-auto">
       <div class="space-y-6">
-        <!-- Pregunta 1 -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button
-            class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-          >
-            <h3 class="text-lg font-bold text-left">
-              1. ¿Qué es la norma IEC 61439 y por qué es clave?
-            </h3>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="faq-content px-5 pb-5 hidden">
-            <p class="text-gray-700">
-              Regula la fabricación segura de tableros de baja tensión,
-              incluyendo pruebas mecánicas, dieléctricas y de aislamiento.
-            </p>
-          </div>
-        </div>
+        {/* Preguntas principales */}
+        {
+          preguntas.map((item) => (
+            <FaqItem
+              numero={item.numero}
+              pregunta={item.pregunta}
+              respuesta={item.respuesta}
+              categoria={item.categoria}
+            />
+          ))
+        }
 
-        <!-- Pregunta 2 -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button
-            class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-          >
-            <h3 class="text-lg font-bold text-left">
-              2. ¿Qué nivel de protección IP debe tener un tablero?
-            </h3>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="faq-content px-5 pb-5 hidden">
-            <p class="text-gray-700">
-              IP41 para interiores, IP44 en exteriores techados y hasta IP54
-              para ambientes expuestos.
-            </p>
-          </div>
-        </div>
-
-        <!-- Pregunta 3 -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button
-            class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-          >
-            <h3 class="text-lg font-bold text-left">
-              3. ¿Qué normas chilenas regulan los tableros eléctricos?
-            </h3>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="faq-content px-5 pb-5 hidden">
-            <p class="text-gray-700">
-              RIC Nº 02 (SEC) y Decreto Nº 8/2019 exigen cumplimiento de normas
-              IEC y estándares de seguridad.
-            </p>
-          </div>
-        </div>
-
-        <!-- Pregunta 4 -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button
-            class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-          >
-            <h3 class="text-lg font-bold text-left">
-              4. ¿Por qué necesito materiales resistentes a la corrosión?
-            </h3>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="faq-content px-5 pb-5 hidden">
-            <p class="text-gray-700">
-              Extienden la vida útil del tablero y reducen riesgos eléctricos.
-            </p>
-          </div>
-        </div>
-
-        <!-- Pregunta 5 -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button
-            class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-          >
-            <h3 class="text-lg font-bold text-left">
-              5. ¿Cómo verifico que mi tablero cumple con normas?
-            </h3>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="faq-content px-5 pb-5 hidden">
-            <p class="text-gray-700">
-              Busca etiquetas visibles y solicita certificados IEC 61439 y
-              resultados de pruebas IP.
-            </p>
-          </div>
-        </div>
-
-        <!-- Más preguntas (colapsadas inicialmente) -->
+        {/* Más preguntas (colapsadas inicialmente) */}
         <div id="more-faqs" class="space-y-6 hidden">
-          <!-- Pregunta 6 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <button
-              class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-            >
-              <h3 class="text-lg font-bold text-left">
-                6. ¿Debo distinguir entre normas IEC, NEMA y UL?
-              </h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content px-5 pb-5 hidden">
-              <p class="text-gray-700">
-                Sí. IEC son estándares internacionales, NEMA para gabinetes
-                (EE.UU.) y UL certifica productos.
-              </p>
-            </div>
-          </div>
-
-          <!-- Pregunta 7 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <button
-              class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-            >
-              <h3 class="text-lg font-bold text-left">
-                7. ¿Qué distancia libre requiere un tablero en obra?
-              </h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content px-5 pb-5 hidden">
-              <p class="text-gray-700">
-                Debe contar con espacio de acceso frontal para operación segura
-                y mantenimiento.
-              </p>
-            </div>
-          </div>
-
-          <!-- Pregunta 8 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <button
-              class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-            >
-              <h3 class="text-lg font-bold text-left">
-                8. ¿Qué pruebas pasan los tableros IEC 61439?
-              </h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content px-5 pb-5 hidden">
-              <p class="text-gray-700">
-                Aislamiento, resistencia dieléctrica, integridad mecánica,
-                prueba contra arco interno, y protección IP.
-              </p>
-            </div>
-          </div>
-
-          <!-- Pregunta 9 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <button
-              class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-            >
-              <h3 class="text-lg font-bold text-left">
-                9. ¿Se requiere revisión periódica o mantenimiento?
-              </h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content px-5 pb-5 hidden">
-              <p class="text-gray-700">
-                Sí, se recomienda mantenimiento preventivo periódico para
-                garantizar seguridad.
-              </p>
-            </div>
-          </div>
-
-          <!-- Pregunta 10 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <button
-              class="faq-toggle w-full flex justify-between items-center p-5 focus:outline-none"
-            >
-              <h3 class="text-lg font-bold text-left">
-                10. ¿Qué pasa si mi tablero no cumple norma?
-              </h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary faq-icon transition-transform duration-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content px-5 pb-5 hidden">
-              <p class="text-gray-700">
-                Riesgo de accidentes, multas, pérdida de garantía y posible
-                invalidez de seguros.
-              </p>
-            </div>
-          </div>
+          {
+            preguntasAdicionales.map((item) => (
+              <FaqItem
+                numero={item.numero}
+                pregunta={item.pregunta}
+                respuesta={item.respuesta}
+                categoria={item.categoria}
+              />
+            ))
+          }
         </div>
 
         <!-- Botón para mostrar más preguntas -->

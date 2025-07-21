@@ -1,187 +1,74 @@
 ---
 // Normativas component for landing page
+import CertificacionCard from "./CertificacionCard.astro";
+
+// Datos de certificaciones
+const certificaciones = [
+  {
+    titulo: "IEC 61439",
+    descripcion:
+      "Ensamblajes de baja tensión, garantizando seguridad y confiabilidad.",
+  },
+  {
+    titulo: "IEC 60529",
+    descripcion:
+      "Protección IP contra ingreso de agua y polvo, asegurando durabilidad.",
+  },
+  {
+    titulo: "NEMA",
+    descripcion:
+      "Normas para gabinetes en EE.UU., reconocidas internacionalmente.",
+  },
+  {
+    titulo: "Materiales",
+    descripcion:
+      "Autoextinguibles y resistentes a la corrosión para mayor seguridad.",
+  },
+  {
+    titulo: "Identificación",
+    descripcion:
+      "Fases, tensión, y nombre visible para fácil reconocimiento y operación.",
+  },
+];
 ---
 
-<section id="normativas" class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-12">
-      <span
-        class="text-2xl md:text-3xl font-bold inline-block bg-primary text-white px-4 py-1 rounded-md mb-4"
-        >📜 Normativas y certificaciones</span
+<section id="normativas" class="py-18 md:py-28 bg-white">
+  <div class="container mx-auto px-4 grid md:grid-cols-[37%_auto] gap-x-8">
+    <div class="mb-12 pr-7">
+      <h2
+        class="text-2xl md:text-3xl font-bold font-heading mb-6 underline-title text-gray-600 inline-block w-[60%]"
       >
-      <h2 class="text-3xl md:text-4xl font-bold font-heading mb-6">
-        Cumplimiento y Seguridad
+        Normativas y certificaciones
       </h2>
       <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-        En <span class="font-bold text-primary">Ingecaal</span> nos ajustamos a la
-        normativa chilena (RIC Nº 02 de la SEC, Decreto Nº 8/2019) que exige cumplimiento
-        de normas internacionales IEC 61439‑1, IEC 61439‑2, IEC 60529 (protección
-        IP) y NEMA, asegurando seguridad, durabilidad y funcionamiento confiable.
+        En <span class="font-bold">Ingecaal</span> nos ajustamos a la normativa chilena
+        (RIC Nº 02 de la SEC, Decreto Nº 8/2019) que exige cumplimiento de normas
+        internacionales IEC 61439‑1, IEC 61439‑2, IEC 60529 (protección IP) y NEMA,
+        asegurando seguridad, durabilidad y funcionamiento confiable.
       </p>
-    </div>
-
-    <div class="mb-12">
-      <h3 class="text-2xl font-bold mb-6 text-center text-dark">
-        ¿Qué certificaciones cumplen nuestros tableros?
-      </h3>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Certificación 1 -->
-        <div
-          class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-primary"
-        >
-          <div class="flex items-start">
-            <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="text-lg font-bold mb-2">IEC 61439</h4>
-              <p class="text-gray-600">
-                Ensamblajes de baja tensión, garantizando seguridad y
-                confiabilidad.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Certificación 2 -->
-        <div
-          class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-primary"
-        >
-          <div class="flex items-start">
-            <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="text-lg font-bold mb-2">IEC 60529</h4>
-              <p class="text-gray-600">
-                Protección IP contra ingreso de agua y polvo, asegurando
-                durabilidad.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Certificación 3 -->
-        <div
-          class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-primary"
-        >
-          <div class="flex items-start">
-            <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="text-lg font-bold mb-2">NEMA</h4>
-              <p class="text-gray-600">
-                Normas para gabinetes en EE.UU., reconocidas internacionalmente.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Certificación 4 -->
-        <div
-          class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-primary"
-        >
-          <div class="flex items-start">
-            <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="text-lg font-bold mb-2">Materiales</h4>
-              <p class="text-gray-600">
-                Autoextinguibles y resistentes a la corrosión para mayor
-                seguridad.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Certificación 5 -->
-        <div
-          class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-primary"
-        >
-          <div class="flex items-start">
-            <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-primary"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="text-lg font-bold mb-2">Identificación</h4>
-              <p class="text-gray-600">
-                Fases, tensión, y nombre visible para fácil reconocimiento y
-                operación.
-              </p>
-            </div>
-          </div>
-        </div>
+      <div class="pt-6 rounded-lg">
+        <p class="text-md font-semibold pl-3 py-1 border-l-2 border-primary">
+          Cumplimos con las actualizaciones del Reglamento Eléctrico Chileno y
+          todas las exigencias de la SEC.
+        </p>
       </div>
     </div>
 
-    <div class="bg-secondary bg-opacity-10 p-6 rounded-lg text-center">
-      <p class="text-lg font-semibold text-secondary">
-        Cumplimos con las actualizaciones del Reglamento Eléctrico Chileno y
-        todas las exigencias de la SEC.
-      </p>
+    <div class="mb-12">
+      <h3 class="text-xl font-bold text-dark">
+        ¿Qué certificaciones cumplen nuestros tableros?
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        {
+          certificaciones.map((cert) => (
+            <CertificacionCard
+              titulo={cert.titulo}
+              descripcion={cert.descripcion}
+            />
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>

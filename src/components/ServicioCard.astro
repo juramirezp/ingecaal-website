@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  imagen: ImageMetadata;
+}
+
+const { titulo, descripcion, imagen } = Astro.props;
+---
+
+<article
+  class="rounded-md shadow-md hover:shadow-lg transition-shadow duration-300 relative overflow-hidden bg-cover bg-center flex flex-col justify-between bg-gray-800 bg-no-repeat group min-h-[330px]"
+  style={`background-image: url('${imagen.src}');`}
+>
+  <div
+    class="absolute bottom-0 left-0 w-full h-[60%] group-hover:h-full bg-linear-to-t from-[#000000b7] group-hover:from-[#000000d2] from-40% group-hover:from-80% to-transparent"
+  >
+  </div>
+  <div
+    class="flex flex-col justify-end h-full px-4 pb-3 relative group-hover:backdrop-blur-[4px]"
+  >
+    <!-- <div class="absolute top-0 left-0 w-full h-full backdrop-blur-lg"></div> -->
+    <!-- <div
+      class="absolute top-0 left-0 w-full h-full bg-linear-to-t from-black to-90% to-transparent"
+    >
+    </div> -->
+    <h3
+      class="text-md font-medium text-white font-heading leading-6.5 mb-3 relative z-10 text-balance group-hover:-translate-y-28 transition-all duration-200 ease-in-out"
+    >
+      {titulo}
+    </h3>
+    <p
+      class="text-white mb-1 text-sm relative z-10 line-clamp-2 group-hover:line-clamp-none group-hover:-translate-y-28 transition-all duration-200 ease-in-out"
+    >
+      {descripcion}
+    </p>
+  </div>
+  <a
+    href="#contacto"
+    class="text-xs flex text-primary items-center font-semibold absolute left-4 -bottom-8 group-hover:bottom-4 transition-all duration-200 ease-in-out"
+  >
+    Solicitar información <Icon
+      name="solar:alt-arrow-right-outline"
+      class="text-primary text-xl font-bold mr-3 transition-all duration-200 ease-in-out"
+    />
+  </a>
+</article>

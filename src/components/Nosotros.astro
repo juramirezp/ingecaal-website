@@ -1,0 +1,92 @@
+---
+import ValorCard from "./ValorCard.astro";
+import MisionVisionCard from "./MisionVisionCard.astro";
+
+// Datos de los valores/experiencias
+const valores = [
+  {
+    titulo: "Experiencia",
+    descripcion:
+      "Dos décadas en el rubro nos respaldan, brindando soluciones confiables y de calidad.",
+    icono: "solar:rocket-2-linear",
+  },
+  {
+    titulo: "Responsabilidad",
+    descripcion:
+      "Compromiso con plazos y normativas, garantizando la satisfacción de nuestros clientes.",
+    icono: "solar:clock-circle-broken",
+  },
+  {
+    titulo: "Calidad",
+    descripcion:
+      "Materiales certificados y procesos rigurosos que aseguran productos de excelencia.",
+    icono: "solar:clipboard-check-broken",
+  },
+  {
+    titulo: "Eficiencia",
+    descripcion:
+      "Soluciones adaptadas a cada proyecto, optimizando recursos y resultados.",
+    icono: "solar:course-up-broken",
+  },
+];
+---
+
+<section id="nosotros" class="py-18 md:py-28">
+  <div
+    class="container mx-auto px-4 grid md:grid-cols-[37%_auto] gap-x-8 relative"
+  >
+    <img
+      src="/src/assets/hero2.png"
+      alt=""
+      class="sticky top-[70px] rounded-xl shadow-xl hidden md:block"
+    />
+    <div class="pt-3">
+      <div class="">
+        <h2
+          class="text-2xl md:text-3xl font-bold font-heading mb-6 underline-title text-gray-600"
+        >
+          Nuestra Empresa
+        </h2>
+        <p class="text-lg text-gray-700 max-w-3xl tracking-wide">
+          Somos una empresa de <span class="font-bold"
+            >fabricación industrial e ingeniería eléctrica</span
+          >, con más de 20 años de trayectoria en el diseño y producción de todo
+          tipo de tableros eléctricos para <span class="font-bold"
+            >empresas y particulares</span
+          >.
+        </p>
+        <p class="text-lg text-gray-700 max-w-3xl mt-4">
+          Nos caracterizamos por cuidar cada detalle y por ofrecer un servicio
+          personalizado.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        {
+          /* Renderizar los valores/experiencias usando el componente ValorCard */
+        }
+        {
+          valores.map((valor) => (
+            <ValorCard
+              titulo={valor.titulo}
+              descripcion={valor.descripcion}
+              icono={valor.icono}
+            />
+          ))
+        }
+      </div>
+
+      <!-- Misión y Visión -->
+      <div class="grid grid-cols-1 gap-8 mt-6">
+        <MisionVisionCard
+          titulo="Nuestra Misión"
+          descripcion="Entregar productos de alta calidad, diseñados a la medida del cliente, en colaboración con nuestro equipo."
+        />
+        <MisionVisionCard
+          titulo="Nuestra Visión"
+          descripcion="Seguir creciendo junto a nuestros usuarios, manteniendo innovación y excelencia."
+        />
+      </div>
+    </div>
+  </div>
+</section>

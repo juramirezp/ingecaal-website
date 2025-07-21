@@ -1,0 +1,19 @@
+---
+// Componente reutilizable para mostrar misión o visión
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+}
+
+const { titulo, descripcion } = Astro.props;
+---
+
+<div class="pl-3 py-1 border-l-2 border-primary">
+  <h3 class="text-lg font-medium mb-2 text-gray-600">
+    {titulo}
+  </h3>
+  <p class="text-gray-700 text-sm">
+    {descripcion}
+  </p>
+</div>

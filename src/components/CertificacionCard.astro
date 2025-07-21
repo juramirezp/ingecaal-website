@@ -1,0 +1,27 @@
+---
+// CertificacionCard.astro - Componente reutilizable para tarjetas de certificaciones
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+}
+
+const { titulo, descripcion } = Astro.props;
+---
+
+<div
+  class="duration-300 group p-4 bg-white rounded-lg border border-gray-200 hover:border-primary"
+>
+  <div class="flex items-start">
+    <div>
+      <h4
+        class="text-md font-bold mb-2 group-hover:text-primary transition-all duration-200 ease-in-out"
+      >
+        {titulo}
+      </h4>
+      <p class="text-sm text-gray-600">
+        {descripcion}
+      </p>
+    </div>
+  </div>
+</div>

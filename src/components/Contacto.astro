@@ -1,15 +1,17 @@
 ---
 // Contacto component for landing page
+import { Icon } from "astro-icon/components";
 ---
 
-<section id="contacto" class="py-16 bg-gradient-to-b from-white to-gray-100">
+<section
+  id="contacto"
+  class="py-16 md:py-28 bg-gradient-to-b from-white to-gray-100"
+>
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
-      <span
-        class="text-2xl md:text-3xl font-bold inline-block bg-primary text-white px-4 py-1 rounded-md mb-4"
-        >✉️ Contacto</span
+      <h2
+        class="text-2xl md:text-3xl font-bold font-heading mb-6 underline-title underline-center text-gray-600"
       >
-      <h2 class="text-3xl md:text-4xl font-bold font-heading mb-6">
         ¿Tienes un proyecto en mente?
       </h2>
       <p class="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -18,108 +20,106 @@
       </p>
     </div>
 
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-10">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:gap-4 lg:gap-10">
       <!-- Información de contacto -->
-      <div class="w-full md:w-1/3 bg-white p-8 rounded-lg shadow-md">
-        <h3 class="text-2xl font-bold mb-6 text-primary">
+      <div class="w-full md:w-1/3 bg-white p-4 lg:p-8 rounded-lg shadow-md">
+        <h3
+          class="text-xl font-bold text-gray-600 underline-title after:!w-[80%] after:!h-[2px] mb-8"
+        >
           Información de contacto
         </h3>
 
         <div class="space-y-6">
           <div class="flex items-start">
-            <div class="bg-primary rounded-full p-3 mr-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                ></path>
-              </svg>
+            <div class="bg-primary rounded-full p-3 md:p-1.5 lg:p-3 mr-4">
+              <Icon name="solar:letter-outline" class="text-white text-2xl" />
             </div>
             <div>
-              <h4 class="text-lg font-semibold">Correo electrónico</h4>
+              <h4 class="text-md font-semibold">Correo electrónico</h4>
               <a
-                href="mailto:info@ingecaal.cl"
-                class="text-gray-700 hover:text-primary transition-colors"
-                >info@ingecaal.cl</a
+                href="mailto:ventas@ingecaal.cl"
+                class="text-gray-700 text-sm hover:text-primary transition-colors block"
+                >ventas@ingecaal.cl</a
+              >
+              <a
+                href="mailto:ingecaal@ingecaal.cl"
+                class="text-gray-700 text-sm hover:text-primary transition-colors block"
+                >ingecaal@ingecaal.cl</a
               >
             </div>
           </div>
 
           <div class="flex items-start">
-            <div class="bg-primary rounded-full p-3 mr-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                ></path>
-              </svg>
+            <div class="bg-primary rounded-full p-3 md:p-1.5 lg:p-3 mr-4">
+              <Icon
+                name="solar:phone-calling-outline"
+                class="text-white text-2xl"
+              />
             </div>
             <div>
-              <h4 class="text-lg font-semibold">Teléfono</h4>
+              <h4 class="text-md font-semibold">Teléfono</h4>
               <a
-                href="tel:+56 9 XXXX XXXX"
-                class="text-gray-700 hover:text-primary transition-colors"
-                >+56 9 XXXX XXXX</a
+                href="tel:+56225261716"
+                class="text-gray-700 text-sm hover:text-primary transition-colors block"
+                >+56 2 2526 1716</a
+              >
+              <a
+                href="tel:+56225254809"
+                class="text-gray-700 text-sm hover:text-primary transition-colors block"
+                >+56 2 2525 4809</a
               >
             </div>
           </div>
 
           <div class="flex items-start">
-            <div class="bg-primary rounded-full p-3 mr-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                ></path>
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
+            <div class="bg-primary rounded-full p-3 md:p-1.5 lg:p-3 mr-4">
+              <Icon
+                name="solar:clock-circle-linear"
+                class="text-white text-2xl"
+              />
             </div>
             <div>
-              <h4 class="text-lg font-semibold">Ubicación</h4>
-              <p class="text-gray-700">Santiago, Chile</p>
+              <h4 class="text-md font-semibold">Horario</h4>
+              <p class="text-gray-700 text-sm">8:30 a 13:00 hrs.</p>
+              <p class="text-gray-700 text-sm">14:00 a 18:30 hrs.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="bg-primary rounded-full p-3 md:p-1.5 lg:p-3 mr-4">
+              <Icon
+                name="solar:point-on-map-linear"
+                class="text-white text-2xl"
+              />
+            </div>
+            <div>
+              <h4 class="text-ms font-semibold">Ubicación</h4>
+              <a
+                href="https://maps.app.goo.gl/WLt1KVzsoNVuPjZ17"
+                class="text-gray-700 text-sm hover:text-primary transition-colors block"
+              >
+                <p>Fuenzalida Urrejola 1147</p>
+                <p>La Cisterna, Santiago</p>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Formulario de contacto -->
-      <div class="w-full md:w-2/3 bg-white p-8 rounded-lg shadow-md">
-        <h3 class="text-2xl font-bold mb-6 text-primary">
+      <div class="w-full md:w-2/3 bg-white p-4 lg:p-8 rounded-lg shadow-md">
+        <h3
+          class="text-xl font-bold text-gray-600 underline-title after:!w-[80%] after:!h-[2px] mb-8"
+        >
           Envíanos un mensaje
         </h3>
 
         <form id="contact-form" class="space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label for="nombre" class="block text-gray-700 font-medium mb-2"
+              <label
+                for="nombre"
+                class="block text-gray-700 font-medium mb-1 text-sm"
                 >Nombre *</label
               >
               <input
@@ -132,8 +132,10 @@
             </div>
 
             <div>
-              <label for="empresa" class="block text-gray-700 font-medium mb-2"
-                >Empresa (opcional)</label
+              <label
+                for="empresa"
+                class="block text-gray-700 font-medium mb-1 text-sm"
+                >Empresa <span class="text-xs">(opcional)</span></label
               >
               <input
                 type="text"
@@ -146,7 +148,9 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label for="email" class="block text-gray-700 font-medium mb-2"
+              <label
+                for="email"
+                class="block text-gray-700 font-medium mb-1 text-sm"
                 >Correo electrónico *</label
               >
               <input
@@ -159,7 +163,9 @@
             </div>
 
             <div>
-              <label for="telefono" class="block text-gray-700 font-medium mb-2"
+              <label
+                for="telefono"
+                class="block text-gray-700 font-medium mb-1 text-sm"
                 >Teléfono *</label
               >
               <input
@@ -173,7 +179,9 @@
           </div>
 
           <div>
-            <label for="mensaje" class="block text-gray-700 font-medium mb-2"
+            <label
+              for="mensaje"
+              class="block text-gray-700 font-medium mb-1 text-sm"
               >Mensaje / descripción del proyecto *</label
             >
             <textarea
