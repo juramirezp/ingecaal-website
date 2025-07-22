@@ -208,24 +208,59 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <script>
+  // Importar el servicio de email
+  import { enviarEmail } from "../utils/emailService.js";
+
   // Script para manejar el envío del formulario
   document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById("contact-form");
+    const submitButton = contactForm?.querySelector('button[type="submit"]');
+    let buttonOriginalText = "";
+
+    if (submitButton) {
+      buttonOriginalText = submitButton.innerHTML;
+    }
 
     if (contactForm) {
-      contactForm.addEventListener("submit", (e) => {
+      contactForm.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // Aquí se implementaría la lógica de envío del formulario
-        // Por ahora, solo mostraremos un mensaje de éxito simulado
+        // Deshabilitar el botón y mostrar estado de carga
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.innerHTML = "Enviando...";
+        }
 
-        // Recopilar datos del formulario
-        const formData = new FormData(contactForm as HTMLFormElement);
-        const formValues = Object.fromEntries(formData.entries());
+        try {
+          // Recopilar datos del formulario
+          const formData = new FormData(contactForm);
+          const formValues = Object.fromEntries(formData.entries());
 
-        // Simulación de envío exitoso
-        alert("¡Gracias por contactarnos! Te responderemos a la brevedad.");
-        (contactForm as HTMLFormElement).reset();
+          // Enviar email usando el servicio de email del cliente
+          const result = await enviarEmail(formValues);
+
+          if (result.success) {
+            // Mensaje de éxito
+            alert("¡Gracias por contactarnos! Te responderemos a la brevedad.");
+            contactForm.reset();
+          } else {
+            // Mensaje de error
+            alert(
+              `Error: ${result.message || "Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente."}`,
+            );
+          }
+        } catch (error) {
+          console.error("Error al enviar el formulario:", error);
+          alert(
+            "Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.",
+          );
+        } finally {
+          // Restaurar el botón
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.innerHTML = buttonOriginalText;
+          }
+        }
       });
     }
   });

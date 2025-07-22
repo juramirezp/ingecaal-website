@@ -1,5 +1,6 @@
 ---
 // Hero component for landing page
+import tallerImage from "../assets/taller-1.png";
 ---
 
 <section
@@ -7,7 +8,8 @@
   class="relative flex items-end justify-center text-white overflow-hidden mt-[70px] py-18 md:py-28"
 >
   <div
-    class="absolute left-0 top-0 w-full h-full backdrop-blur-[10px] bg-[url('/src/assets/taller-1.png')] bg-center bg-cover"
+    class="absolute left-0 top-0 w-full h-full backdrop-blur-[10px] bg-center bg-cover"
+    style={`background-image: url(${tallerImage.src});`}
   >
     <!-- <img
       src=""
@@ -19,7 +21,7 @@
   </div>
   <div class="container mx-auto px-4 relative z-10">
     <p class="text-xl md:text-xl max-w-3xl text-center mx-auto text-white">
-      Frabricando tableros eléctricos <span class="font-bold pl-1"
+      Fabricando tableros eléctricos <span class="font-bold pl-1"
         >por más de 20 años</span
       >
     </p>

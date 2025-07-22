@@ -1,6 +1,7 @@
 ---
 import ValorCard from "./ValorCard.astro";
 import MisionVisionCard from "./MisionVisionCard.astro";
+import hero2Image from "../assets/hero2.png";
 
 // Datos de los valores/experiencias
 const valores = [
@@ -36,8 +37,8 @@ const valores = [
     class="container mx-auto px-4 grid md:grid-cols-[37%_auto] gap-x-8 relative"
   >
     <img
-      src="/src/assets/hero2.png"
-      alt=""
+      src={hero2Image.src}
+      alt="Imagen de Ingecaal"
       class="sticky top-[70px] rounded-xl shadow-xl hidden md:block"
     />
     <div class="pt-3">
